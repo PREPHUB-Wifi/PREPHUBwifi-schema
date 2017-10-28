@@ -5,9 +5,8 @@ CREATE SCHEMA prephubwifi;
 CREATE TABLE prephubwifi.all_reports
 (
   pkey bigserial NOT NULL,
-  fkey bigint NOT NULL,
   database_time timestamp with time zone DEFAULT now(),
-  created_at timestamp with time zone,
+  created_at bigint,
   name character varying NOT NULL,
   notes character varying NOT NULL,
   source character varying NOT NULL,
