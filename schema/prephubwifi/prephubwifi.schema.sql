@@ -1,9 +1,5 @@
 CREATE SCHEMA prephubwifi;
 
--- Spatial extensions
-CREATE EXTENSION postgis;
-CREATE EXTENSION postgis_topology;
-
 -- All Reports Table
 -- Create Table to store reports
 CREATE TABLE prephubwifi.all_reports
@@ -20,10 +16,3 @@ CREATE TABLE prephubwifi.all_reports
   tags json,
   CONSTRAINT all_reports_pkey PRIMARY KEY (pkey)
 );
-
--- Add Geometry column to all_reports
-SELECT AddGeometryColumn ('prephubwifi','all_reports','the_geom',4326,'POINT',2);
-ALTER TABLE prephubwifi.all_reports ALTER COLUMN the_geom SET NOT NULL;
-
--- Add GIST spatial index
-CREATE INDEX gix_all_reports ON prephubwifi.all_reports USING gist (the_geom);
