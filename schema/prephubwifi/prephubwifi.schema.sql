@@ -12,6 +12,7 @@ CREATE TABLE prephubwifi.all_reports
   pkey bigserial NOT NULL,
   database_time timestamp with time zone DEFAULT now(),
   time bigint,
+  pckt_id int NOT NULL,
   newName character varying NOT NULL,
   needHelp character varying NOT NULL,
   notes character varying NOT NULL,
